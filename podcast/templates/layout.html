@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Podcast Libary</title>
+    <link
+      rel="stylesheet" href="../static/css/main.css"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="main-body-grid">
+        <div class="side-bar">
+            <a href="{{ url_for('home', page = 1) }}"><p class="side-nav-text">Home</p></a>
+            <a href="{{ url_for('catalogue') }}"><p class="side-nav-text">Catalogue</p></a>
+            <a href="{{ url_for('podcastDescription', id = 1) }}"><p class="side-nav-text">Podcasts</p></a>
+        </div>
+        <div class="podcasts">
+            <header id="header">
+                <h1>CS235 Pod Catalogue</h1>
+                <div class="copyright">&copy; jeva477 | UPI2 | UPI3 (Write your full names or UPIs)</div>
+            </header>
+            <div class="dropdown">
+                <button class="dropbtn">Sort</button>
+                <div class="dropdown-content">
+                    <a href={{ url_for('home') }}>A-Z</a>
+                    <a href={{ url_for('home') }}>Z-A</a>
+                    <a href={{ url_for('home') }}>ID</a>
+                    <a href={{ url_for('home') }}>Date</a>
+                </div>
+            </div>
+            <div class="podcast-grid-second">
+
+                {% for i in podcasts%}
+                <div class="podcast-item">
+                    <a href={{ url_for("podcastDescription", id = [i.id, 1]) }}>
+                        <img src={{ i.image }} alt="podcastimage">
+                    </a>
+                    <h3>{{i.title}}</h3>
+                </div>
+                {% endfor %}
+            <div class="pages">
+                {% if page > 1 %}
+                <a href="{{ url_for('home', page= (page - 1)) }}">Previous</a>
+                {% endif %}
+                <span>Page {{ page }} of {{ total_pages }}</span>
+                {% if page < total_pages %}
+                <a href="{{ url_for('home', page=(page + 1)) }}">Next</a>
+                {% endif %}
+            </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

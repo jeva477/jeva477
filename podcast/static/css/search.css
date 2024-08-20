@@ -1,0 +1,28 @@
+input{
+    width: 50%;
+    height: 50px;
+    align-content: center;
+}
+
+input [type=text]{
+    font-size: 30px;
+    color: #1f1f1f;
+    border-radius: 15px;
+}
+
+.Search{
+    align-self: center;
+    font-size: 30px;
+    color: #1f1f1f;
+}
+
+.randomPods{
+    display: -ms-grid;
+    grid-template-columns: 30% 30% 30%;
+}
+
+
+.randomPods .podcast-search-item img{
+    width: 20%;
+    height: auto;
+}
