@@ -36,8 +36,6 @@ def create_app():
         id = int(q[0])
         page = int(q[1])
 
-        print(id, page)
-
         #id = request.args.get('id', 1, type=int)
         #page = request.args.get('page', 1, type=int)
         podcast = repository.all_podcasts[int(id) - 1]

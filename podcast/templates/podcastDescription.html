@@ -12,7 +12,7 @@
             <div class="side-bar-text">
             <a href="{{ url_for('home', page = 1) }}"><p class="side-nav-text">Home</p></a>
             <a href="{{ url_for('catalogue') }}"><p class="side-nav-text">Catalogue</p></a>
-            <a href="{{ url_for('podcastDescription', id = 1) }}"><p class="side-nav-text">Podcasts</p></a>
+            <a href="{{ url_for('podcastDescription', id = [1,1]) }}"><p class="side-nav-text">Podcasts</p></a>
             </div>
         </div>
         <div class="podcasts">
@@ -27,7 +27,7 @@
                         <img src={{ podcast.image }} alt="podcastimage">
                         <br>
 
-                            <span class="material-symbols-outlined" onclick="{{ url_for('home', page=1) }}">arrow_back</span>
+                            <span class="material-symbols-outlined" onclick="history.back()">arrow_back</span>
 
                     </div>
                     <div class="description">
